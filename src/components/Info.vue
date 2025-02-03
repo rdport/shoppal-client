@@ -97,7 +97,7 @@
                 <div class="info-description description">
                   <p>
                     A web application for online shopping which is managed by administrators on CMS website,
-                    <a href="https://shoppal-cms-client-rdport@onrender.com">Shoppal CMS</a>.
+                    <a href="https://shoppal-cms-client-rdport.onrender.com">Shoppal CMS</a>.
                   </p>
                   <h2>Features</h2>
                     <ul>
