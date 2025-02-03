@@ -77,15 +77,6 @@ export default {
       message: '',
       showInfo: true,
       isInfoShown: false
-      // params: {
-      //   client_id: '861795519447-17vmd84rog7jj1k0q31k1j1n10nbj6sm.apps.googleusercontent.com'
-      // },
-      // // only needed if you want to render the button with the google ui
-      // renderParams: {
-      //   width: 230,
-      //   height: 50,
-      //   longtitle: true
-      // }
     }
   },
   methods: {
