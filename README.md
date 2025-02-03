@@ -1,4 +1,4 @@
-# ecommerce_client_customer
+# shoppal_client_customer
 
 ## Project setup
 ```
