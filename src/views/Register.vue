@@ -115,7 +115,7 @@ export default {
           this.messages = err.response.data.messages
           this.error = true
           this.$nextTick(() => {
-            console.log(this.$refs.error)
+            // console.log(this.$refs.error)
             this.$refs.error[0].$el.scrollIntoView()
           })
         })

@@ -21,7 +21,6 @@ export default {
         by: 'category',
         words: category
       }
-      console.log(searchKey)
       this.$store.commit('SET_SEARCH_KEY', searchKey)
       this.$store.dispatch('fetchProducts')
     }
