@@ -1,9 +1,14 @@
 <template>
   <div>
-    <div v-if="error">
-          <ErrorMessage v-for="(message, index) in messages" :key="index" :message="message" ref="error"></ErrorMessage>
+    <div div v-if="error && !loading">>
+      <ErrorMessage v-for="(message, index) in messages" :key="index" :message="message" ref="error"></ErrorMessage>
     </div>
-    <div class="container login-page">
+    <div v-if="loading" class="">
+      <div id="loadingMask" class="center-viewport" style="background: #fff;">
+        <img class="img-fluid" src="../assets/loading-spinning-orange.gif">
+      </div>ß
+    </div>
+    <div class="container login-page" v-if="!loading">
       <div class="container shadow register-form-background">
         <img class="shopping1-img" src="../assets/shopping1.svg" width="">
         <img class="star-img" src="../assets/star2.svg" width="">

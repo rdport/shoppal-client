@@ -1,9 +1,14 @@
 <template>
   <div class="">
-    <div v-if="error">
+    <div v-if="error && !loading">
       <ErrorMessage :message="message" ref="error"></ErrorMessage>
     </div>
-    <div class="container login-page">
+    <div v-if="loading" class="">
+      <div id="loadingMask" class="center-viewport" style="background: #fff;">
+        <img class="img-fluid" src="../assets/loading-spinning-orange.gif">
+      </div>
+    </div>
+    <div class="container login-page" v-if="!loading">
       <div class="container shadow login-form-background">
         <img class="shopping1-img" src="../assets/shopping1.svg" width="">
         <img class="star-img" src="../assets/star2.svg" width="">
@@ -74,6 +79,7 @@ export default {
         password: ''
       },
       error: false,
+      loading: false,
       message: '',
       showInfo: true,
       isInfoShown: false
@@ -82,6 +88,7 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
+      this.loading = true
       axios
         .post('/customer/login', this.form)
         .then(({ data }) => {
@@ -94,8 +101,10 @@ export default {
           this.$store.commit('SET_IS_AUTHENTICATED', true)
           this.$store.dispatch('fetchProfile')
           this.$router.push('/')
+          this.loading = false
         })
         .catch((err) => {
+          this.loading = false
           console.log(err)
           this.message = err.response.data.message
           this.error = true
