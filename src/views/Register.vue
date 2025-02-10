@@ -99,12 +99,14 @@ export default {
         password: ''
       },
       error: false,
+      loading: false,
       messages: []
     }
   },
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
+      this.loading = true
       axios
         .post('/customer/register', this.form)
         .then(({ data }) => {
@@ -114,8 +116,10 @@ export default {
             'success'
           )
           this.$router.push('/login')
+          this.loading = false
         })
         .catch((err) => {
+          this.loading = false
           console.log(err)
           this.messages = err.response.data.messages
           this.error = true
