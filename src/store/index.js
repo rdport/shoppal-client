@@ -20,7 +20,8 @@ export default new Vuex.Store({
     searchKey: {},
     isAuthenticated: false,
     username: '',
-    isInfoShown: false
+    isInfoShown: false,
+    isLoading: false
   },
   mutations: {
     SET_CATEGORY (state, payload) {
@@ -67,6 +68,9 @@ export default new Vuex.Store({
     },
     SET_IS_INFO_SHOWN (state, payload) {
       state.isInfoShown = payload
+    },
+    SET_IS_LOADING (state, payload) {
+      state.isLoading = payload
     }
   },
   actions: {
@@ -83,6 +87,7 @@ export default new Vuex.Store({
         })
     },
     fetchProducts ({ commit }) {
+      commit('SET_IS_LOADING', true)
       axios
         .post('/products', {
         })
@@ -98,12 +103,15 @@ export default new Vuex.Store({
           })
           commit('SET_INSTOCK_PRODUCTS', inStockProducts)
           commit('SET_NOSTOCK_PRODUCTS', noStockProducts)
+          commit('SET_IS_LOADING', false)
         })
         .catch((err) => {
+          commit('SET_IS_LOADING', false)
           console.log(err)
         })
     },
     fetchCarts ({ commit }) {
+      commit('SET_IS_LOADING', true)
       axios
         .post('/carts', {}, { headers: { access_token: localStorage.getItem('access_token') } })
         .then(({ data }) => {
@@ -123,22 +131,28 @@ export default new Vuex.Store({
           commit('SET_INSTOCK_CARTS', inStockCarts)
           commit('SET_NOSTOCK_CARTS', noStockCarts)
           commit('SET_TOTAL', total)
+          commit('SET_IS_LOADING', false)
         })
         .catch((err) => {
+          commit('SET_IS_LOADING', false)
           console.log(err)
         })
     },
     fetchHistories ({ commit }) {
+      commit('SET_IS_LOADING', true)
       axios
         .post('/histories', {}, { headers: { access_token: localStorage.getItem('access_token') } })
         .then(({ data }) => {
           commit('SET_HISTORIES', data)
+          commit('SET_IS_LOADING', false)
         })
         .catch((err) => {
+          commit('SET_IS_LOADING', false)
           console.log(err)
         })
     },
     fetchWishlists ({ commit }) {
+      commit('SET_IS_LOADING', true)
       axios
         .post('/wishlists', {}, { headers: { access_token: localStorage.getItem('access_token') } })
         .then(({ data }) => {
@@ -156,8 +170,10 @@ export default new Vuex.Store({
           commit('SET_INSTOCK_WISHLISTS', inStockWishlists)
           commit('SET_NOSTOCK_WISHLISTS', noStockWishlists)
           commit('SET_WISHLIST_PRODUCTS', arrProductId)
+          commit('SET_IS_LOADING', false)
         })
         .catch((err) => {
+          commit('SET_IS_LOADING', false)
           console.log(err)
         })
     },

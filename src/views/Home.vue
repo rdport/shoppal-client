@@ -1,18 +1,26 @@
 <template>
   <div>
-    <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="inStockProducts.length">
-      <ProductCard v-for="product in inStockProducts" :key="product.id" :product="product">
-      </ProductCard>
+    <div v-if="$store.state.isLoading" class="">
+      <div id="loadingMask" class="center-viewport" style="background: #fff;">
+        <img class="img-fluid" src="../assets/loading-spinning-orange.gif" width="300">
+      </div>
     </div>
-    <div class="mt-2 ml-4 mr-4" v-if="noStockProducts.length">
-      <h5 class="bg-warning border rounded" v-if="noStockProducts.length === 1">The following product is out of stock.</h5>
-      <h5 class="bg-warning border rounded" v-else>The following products are out of stock.</h5>
-    </div>
-    <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="noStockProducts.length">
-      <ProductCard v-for="product in noStockProducts" :key="product.id" :product="product">
-      </ProductCard>
+    <div v-if="!$store.state.isLoading">
+      <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="inStockProducts.length">
+        <ProductCard v-for="product in inStockProducts" :key="product.id" :product="product">
+        </ProductCard>
+      </div>
+      <div class="mt-2 ml-4 mr-4" v-if="noStockProducts.length">
+        <h5 class="bg-warning border rounded" v-if="noStockProducts.length === 1">The following product is out of stock.</h5>
+        <h5 class="bg-warning border rounded" v-else>The following products are out of stock.</h5>
+      </div>
+      <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="noStockProducts.length">
+        <ProductCard v-for="product in noStockProducts" :key="product.id" :product="product">
+        </ProductCard>
+      </div>
     </div>
   </div>
+  
 </template>
 
 <script>

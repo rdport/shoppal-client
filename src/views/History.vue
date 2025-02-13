@@ -1,20 +1,28 @@
 <template>
   <div>
-    <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="histories.length">
-      <HistoryCard v-for="history in histories" :key="history.id" :history="history">
-      </HistoryCard>
+    <div v-if="$store.state.isLoading" class="">
+      <div id="loadingMask" class="center-viewport" style="background: #fff;">
+        <img class="img-fluid" src="../assets/loading-spinning-orange.gif" width="300">
+      </div>
     </div>
-    <div class="row justify-center"  v-if="!histories.length">
-      <div class="col-sm col-md-4 ml-3 mr-2">
-        <div class="card mt-4">
-          <div class="card-body">
-            <h5 class="card-title">No transaction history.</h5>
-            <a href="" @click="goHome" class="btn btn-success">Let's shop</a>
+    <div v-if="!$store.state.isLoading">
+      <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="histories.length">
+        <HistoryCard v-for="history in histories" :key="history.id" :history="history">
+        </HistoryCard>
+      </div>
+      <div class="row justify-center"  v-if="!histories.length">
+        <div class="col-sm col-md-4 ml-3 mr-2">
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">No transaction history.</h5>
+              <a href="" @click="goHome" class="btn btn-success">Let's shop</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+ 
 </template>
 
 <script>

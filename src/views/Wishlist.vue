@@ -1,23 +1,30 @@
 <template>
   <div>
-    <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="inStockWishlists.length">
-      <WishlistCard v-for="wishlist in inStockWishlists" :key="wishlist.id" :wishlist="wishlist">
-      </WishlistCard>
+    <div v-if="$store.state.isLoading" class="">
+      <div id="loadingMask" class="center-viewport" style="background: #fff;">
+        <img class="img-fluid" src="../assets/loading-spinning-orange.gif" width="300">
+      </div>
     </div>
-    <div class="mt-2 ml-4 mr-4" v-if="noStockWishlists.length">
-      <h5 class="bg-warning border rounded" v-if="noStockWishlists.length === 1">The following product is out of stock.</h5>
-      <h5 class="bg-warning border rounded" v-else>The following products are out of stock.</h5>
-    </div>
-    <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="noStockWishlists.length">
-      <WishlistCard v-for="wishlist in noStockWishlists" :key="wishlist.id" :wishlist="wishlist">
-      </WishlistCard>
-    </div>
-    <div class="justify-center" v-if="!inStockWishlists.length && !noStockWishlists.length">
-      <div class="col-sm col-md-4 ml-3 mr-2">
-        <div class="card mt-4">
-          <div class="card-body">
-            <h5 class="card-title">No items in your wishlist.</h5>
-            <a href="" @click="goHome" class="btn btn-success">Let's shop</a>
+    <div v-if="!$store.state.isLoading">
+      <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="inStockWishlists.length">
+        <WishlistCard v-for="wishlist in inStockWishlists" :key="wishlist.id" :wishlist="wishlist">
+        </WishlistCard>
+      </div>
+      <div class="mt-2 ml-4 mr-4" v-if="noStockWishlists.length">
+        <h5 class="bg-warning border rounded" v-if="noStockWishlists.length === 1">The following product is out of stock.</h5>
+        <h5 class="bg-warning border rounded" v-else>The following products are out of stock.</h5>
+      </div>
+      <div class="layout-center row row-cols-1 row-cols-md-4 g-4 ml-2 mr-2" v-if="noStockWishlists.length">
+        <WishlistCard v-for="wishlist in noStockWishlists" :key="wishlist.id" :wishlist="wishlist">
+        </WishlistCard>
+      </div>
+      <div class="justify-center" v-if="!inStockWishlists.length && !noStockWishlists.length">
+        <div class="col-sm col-md-4 ml-3 mr-2">
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">No items in your wishlist.</h5>
+              <a href="" @click="goHome" class="btn btn-success">Let's shop</a>
+            </div>
           </div>
         </div>
       </div>
