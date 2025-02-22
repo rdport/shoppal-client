@@ -129,7 +129,7 @@
                       <li>Please check out the "Fancytodo" project which has implemented more advanced authentication with secure access token, csrf token and refresh token.</li>
                       <li><a href="https://github.com/rdport/fancytodo-client.git">fancytodo-client on github</a>, <a href="https://github.com/rdport/fancytodo-server.git">fancytodo-server on github</a>, <a href="https://fancytodo-client.onrender.com">Fancytodo website</a></li>
                       <li>The images of the products are all in high resolution, and the "srcset" has not been provided.</li>
-                      <li>The frontend, backend and database of this project are using free tier hosting services so this website might not be always accessible.</li>
+                      <li>The frontend, backend and database of this project use free-tier hosting so this website might not always be accessible and a significant initial loading time is expected.</li>
                     </ul>
                 </div>
             </div>
