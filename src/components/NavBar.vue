@@ -25,11 +25,11 @@
         </b-nav-item>
       </b-navbar-nav>
       <div v-if="$route.name === 'Home'" class="form-group search-container col-lg-8">
-        <select v-model="searchKey.by" class="form-control search-by col-4" name="search-by">
+        <select v-model="searchKey.by" class="form-control search-by col-3" name="search-by">
           <option value="name" selected>Name</option>
           <option value="category">Category</option>
         </select>
-        <input v-model="searchKey.words" @keyup="setSearchKey" class="form-control col-8" id="search" type="text" placeholder="search ...">
+        <input v-model="searchKey.words" @keyup="setSearchKey" class="form-control col-6" id="search" type="text" placeholder="search ...">
       </div>
       <!-- Right aligned nav items -->
       <b-navbar-nav v-if="isAuthenticated" class="ml-auto">
@@ -48,7 +48,7 @@
         <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
           <template #button-content >
-            <em>{{ username }}</em>
+            <em>{{ username.slice(0, 10) }}</em>
           </template>
           <b-dropdown-item id="btn-logout" @click="logout">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>

@@ -309,6 +309,8 @@ input[type=text], input[type=email], input[type=password], input[type=date], inp
   display: flex;
   justify-content: center;
   margin-top: 0.7rem;
+  margin-left: -4rem;
+  margin-right: -4.5rem;
 }
 
 .search-by {
@@ -414,4 +416,8 @@ input[type=text], input[type=email], input[type=password], input[type=date], inp
   .info-card-title {
      font-size: small;
   }
+}
+
+@media only screen and (min-width: 992px) {
+
 }
