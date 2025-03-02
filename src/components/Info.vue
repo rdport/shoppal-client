@@ -100,6 +100,15 @@
                     A web application for online shopping which is managed by administrators on CMS website,
                     <a href="https://shoppal-cms-client-rdport.onrender.com">Shoppal CMS</a>.
                   </p>
+                  <p>The following users have been added to the database:</p>
+                  <p class="mb-0" style="font-weight:bold">John Doe</p>
+                  email: johndoe@mail.com<br>
+                  password: 123456<br>
+                  <br>
+                  <p class="mb-0" style="font-weight:bold">Jane Doe</p>
+                  email: janedoe@mail.com<br>
+                  password: 123456<br>
+                  <br>
                   <h2>Github</h2>
                   <ul>
                     <li><a href='https://github.com/rdport/shoppal-cms-client.git'>shoppal-cms-client</a></li>
