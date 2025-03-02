@@ -118,6 +118,7 @@
                   <h2>Features</h2>
                     <ul>
                         <li>Sign in and register with email</li>
+                        <li>Only users with the role of "customer" can sign in</li>
                         <li>Choose categories on the side bar</li>
                         <li>Filter products by name and category</li>
                         <li>Add products to cart and wishlist</li>
