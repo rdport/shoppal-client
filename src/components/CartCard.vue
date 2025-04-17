@@ -171,9 +171,6 @@ export default {
     subtotal () {
       return this.cart.Product.price * this.quantity
     }
-  },
-  created () {
-    this.$store.dispatch('fetchCarts')
   }
 }
 </script>
